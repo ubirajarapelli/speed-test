@@ -1,1 +1,118 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+// RESET stylesheet
+// This stylesheet reset the default styles of all tag in all browsers
+// This is a very hardcore reset
+// Based on the work of Eric Meyer, Richard Clark and some personal experiences
+// @see     http: //meyerweb.com/eric/tools/css/reset/
+// @see     https: //code.google.com/p/html5resetcss/
+// @version 2.1
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+a, hr,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  box-sizing: border-box; /* ie8+ */
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+  outline: 0;
+}
+input:not([type="radio"]),
+input:not([type="checkbox"]),
+select,
+textarea {
+  box-sizing: border-box; /* ie8+ */
+}
+button,
+select,
+textarea,
+input {
+  font-family: inherit; /* ie8+ */
+}
+/*
+// @note HTML5 display-role
+// @css-for older browsers
+*/
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+a img {
+  display: block;
+  border: none;
+}
+img{
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+hr {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: left;
+}
+/* @section  forms */
+input, select {
+  vertical-align: middle;
+}
+/* @note Remember to define focus styles in the form partial file */
+:focus {
+  outline: none;
+}
+
+
+:root {
+  --dark: #000;
+  --light: #fafcff;
+  --lighter: #fff;
+  --dark-blue: #232c37;
+
+  --primary: #ff5c72;
+  --seconday: #234c87;
+
+  --aaa: #4c6280; /*title*/
+  --text-color: #7d93b2; /* text */
+  --botao-borda: #ceddf2;
+
+  --hover: #e5f0ff;
+
+  --red: #ff4141;
+  --orange:#ff8d41;
+  --light-orange: #ffc435;
+  --yellow: #fefb20;
+  --green: #1af170;
+  --light-green: #12f9af;
+
+  --font-size-base: 16px;
+
+  --space-small: 8px;
+  --space-base: 16px;
+  --space-large: 32px;
+}
+
+body {
+  font-size: var(--font-size-base);
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--light);
+}
