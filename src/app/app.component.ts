@@ -7,38 +7,88 @@ import { interval } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
 
   stop: boolean = false;
-  mediz: Array<number> = new Array();
-  speed: string;
+  speedValues: Array<number> = new Array();
+  speed: number;
   timer: any;
+
+  speedDownloadAvg: number;
+  speedUploadAvg: number;
+  speedPingAvg: number;
+  user: string;
+
+  upload: number;
+  download: number;
+  ping: string;
+
+  objTosave: object;
+
+  constructor() {
+
+  }
 
   ngOnInit() {
     this.interval();
-  }
-
-  random(min: number, max: number){
-    return Math.floor(Math.random()*(max-min+1)+min);
-  };
-
-  timeOut() {
-    return setTimeout(() => { this.stop = true }, 10000)
+    this.getUser();
   };
 
   interval(): any {
-    this.timeOut()
-    const timez = setInterval(() => {
-      if(this.stop ) {
-        clearInterval(timez);
-        this.setSorage(this.mediz)
+    this.timeOut();
+    const intervalTtime = setInterval(() => {
+      if(this.stop) {
+        clearInterval(intervalTtime);
+        this.calcSpeedAvg(this.speedValues)
+        this.objTosave = {
+          name: this.user,
+          date: new Date,
+          speedDownloadAvg: this.speedDownloadAvg;
+          speedUploadAvg: this.speedUploadAvg;
+          speedPingAvg: this.speedPingAvg;
+        }
+
+        this.setSorage('speedTest', this.objTosave)
       }
-      this.speed  = `${this.mediz[this.mediz.length -1]} Mbps`
-      this.mediz.push(this.random(90,100))
+
+      this.speedValues.push(this.random(90,100));
+
+      this.speed = this.speedValues[this.speedValues.length -1];
+      this.download = this.speedValues[this.speedValues.length -1];
+      this.upload = (this.speedValues[this.speedValues.length -1] / 8).toFixed(1);
+      this.ping = Math.floor(this.speedValues[this.speedValues.length -1] / 12);
+
     }, 500);
   };
 
-  setSorage(speed: Array<number>) {
-    localStorage.setItem('speedTest', JSON.stringify({data: new Date(), speedData: speed}))
+  private random(min: number, max: number): number {
+    return Math.floor(Math.random()*(max-min+1)+min);
   };
+
+  private timeOut() {
+    return setTimeout(() => { this.stop = true }, 10000)
+  };
+
+  private calcSpeedAvg(values: Array<number>): number {
+    const speedAvg = values.reduce((sum, grade) => sum += grade, 0) / values.length;
+    this.speedDownloadAvg = speedAvg;
+    this.speedUploadAvg = speedAvg / 8;
+    this.speedPingAvg = speedAvg / 12;
+  }
+
+  private setSorage(key: string, value: any) {
+    localStorage.setItem(key, JSON.stringify(value))
+  };
+
+  private getStorage(key: string) {
+    return JSON.parse(localStorage.getItem(key))
+  };
+
+  getUser() {
+    const userInfo = this.getStorage('userInfo');
+    (userInfo === null) ? this.user = 'Usuario' : this.user = userInfo.userName;
+  };
+
+  // setUser() {
+  //   localStorage.setItem('userInfo', JSON.stringify({userName: 'Usuário'}))
+  // };
 }

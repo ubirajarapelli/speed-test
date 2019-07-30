@@ -1,12 +1,41 @@
 <header>
-  <h1>Bandwidth</h1>
+  <h1 class="logo">Bandwidth</h1>
   <nav>
-      <a href="#">Home</a>
-      <a href="#">Features</a>
-      <a href="#">Pricing</a>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
   </nav>
-  <span class="login">User</span>
+  <span class="login">Bem vindo {{user}}</span>
+  <i class="fas fa-user"></i>
 </header>
+
 <div class="container">
-  <p>{{speed}}</p>
+
+  <progress min="0" max="100" [value]="speed">
+  </progress>
+
+  <div class="card-group">
+    <div class="card">
+      <!-- <i class="fas fa-exchange-alt"></i> -->
+      <h2>Ping</h2>
+      <p>O Ping ou latência bidirecional é a medida de tempo para uma mensagem ir a um destino e voltar</p>
+      <span>{{ping}} Ms</span>
+    </div>
+    <div class="card">
+      <!-- <i class="fas fa-sort-amount-up"></i> -->
+      <h2>Download</h2>
+      <p>A Velocidade de download se refere à rapidez com que um arquivo pode ser baixado de um serviço na Internet</p>
+      <span>{{download}} Mbps</span>
+    </div>
+    <div class="card">
+      <!-- <i class="fas fa-sort-amount-down-alt"></i> -->
+      <h2>Upload</h2>
+      <p>A Velocidade de upload se refere à rapidez com que um arquivo pode ser enviado a um serviço na Internet. </p>
+      <span>{{upload}} Mbps</span>
+    </div>
+  </div>
+
+<div class="historico">
+
+</div>
 </div>
