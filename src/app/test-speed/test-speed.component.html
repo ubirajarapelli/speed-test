@@ -1,0 +1,46 @@
+<div class="container">
+
+  <progress min="0" max="100">
+  </progress>
+
+  <div class="card-group">
+    <div class="card">
+      <!-- <i class="fas fa-exchange-alt"></i> -->
+      <h2>Ping</h2>
+      <p>O Ping ou latência bidirecional é a medida de tempo para uma mensagem ir a um destino e voltar</p>
+      <span>{{ping}} Ms</span>
+    </div>
+    <div class="card">
+      <!-- <i class="fas fa-sort-amount-up"></i> -->
+      <h2>Download</h2>
+      <p>A Velocidade de download se refere à rapidez com que um arquivo pode ser baixado de um serviço na Internet</p>
+      <span>{{download}} Mbps</span>
+    </div>
+    <div class="card">
+      <!-- <i class="fas fa-sort-amount-down-alt"></i> -->
+      <h2>Upload</h2>
+      <p>A Velocidade de upload se refere à rapidez com que um arquivo pode ser enviado a um serviço na Internet. </p>
+      <span>{{upload}} Mbps</span>
+    </div>
+  </div>
+  <div class="historico">
+    <details *ngFor="let item of history">
+      <summary>
+        {{item.dateTime | date: 'dd/MMM/yyyy' }}
+        <!-- <i class="fas fa-caret-down"></i> -->
+        <i class="fas fa-angle-down"></i>
+      </summary>
+
+
+      <div class="gauge">
+        <span [attr.data-tooltip]="item.speedDownloadAvg">{{item.speedDownloadAvg}}</span>
+      </div>
+
+        <p>Nome: {{item.userName}}</p>
+        <p>Data: {{item.dateTime | date: 'dd/MMM/yyyy' }}</p>
+        <p>Donwload: {{item.speedDownloadAvg |  number:'1.1' }}</p>
+        <p>Upload: {{item.speedUploadAvg.toFixed(1)}} Mbps</p>
+        <p>Ping: {{item.speedPingAvg}}</p>
+    </details>
+  </div>
+</div>

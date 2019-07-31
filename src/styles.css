@@ -105,14 +105,19 @@ input, select {
   --light-green: #12f9af;
 
   --font-size-base: 16px;
+  --font-size-medium: 20px;
   --font-size-large: 24px;
 
   --space-small: 8px;
   --space-base: 16px;
   --space-large: 32px;
+
+  --radius-base: 4px;
+  --radius-large: 8px;
 }
 
 body {
+  height: 100vh;
   font-size: var(--font-size-base);
   font-family: 'Nunito', sans-serif;
   background-color: var(--light);
