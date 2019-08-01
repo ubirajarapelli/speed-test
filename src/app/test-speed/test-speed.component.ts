@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Storage } from '../utils/storage'
 @Component({
   selector: 'app-test-speed',
   templateUrl: './test-speed.component.html',
@@ -24,14 +24,14 @@ export class TestSpeedComponent implements OnInit {
   ping: string;
 
   objTosave: Array<object>;
-  history: Array<object>;
 
-  constructor() { }
+  constructor(
+    public storage: Storage
+  ) { }
 
   ngOnInit() {
     this.interval();
     this.getUser();
-    this.getHistory();
   };
 
   interval(): any {
@@ -44,7 +44,7 @@ export class TestSpeedComponent implements OnInit {
 
         this.saveSpeedAVG()
 
-        // this.setSorage('speedTest', this.objTosave);
+        // this.storage.setSorage('speedTest', this.objTosave);
       }
 
       this.speedValues.push(this.random(this.mbMin, this.mbMax));
@@ -73,7 +73,7 @@ export class TestSpeedComponent implements OnInit {
   }
 
   private saveSpeedAVG() {
-    const persist = this.getStorage('speedTest');
+    const persist = this.storage.getStorage('speedTest');
     let arrTemp = []
 
     const obj = {
@@ -92,22 +92,22 @@ export class TestSpeedComponent implements OnInit {
     return this.objTosave = [].concat(obj, persist);
   };
 
-  private setSorage(key: string, value: any) {
-    localStorage.setItem(key, JSON.stringify(value))
-  };
+  // public setSorage(key: string, value: any) {
+  //   localStorage.setItem(key, JSON.stringify(value))
+  // };
 
-  private getStorage(key: string) {
-    return JSON.parse(localStorage.getItem(key))
-  };
+  // public getStorage(key: string) {
+  //   return JSON.parse(localStorage.getItem(key))
+  // };
 
   getUser() {
-    const userInfo = this.getStorage('userInfo');
+    const userInfo = this.storage.getStorage('userInfo');
     (userInfo === null) ? this.user = 'Usuario' : this.user = userInfo.userName;
   };
 
-  getHistory() {
-    this.history = this.getStorage('speedTest');
-  };
+  // getHistory() {
+  //   this.history = this.getStorage('speedTest');
+  // };
 }
 
 // setUser() {

@@ -1,0 +1,36 @@
+.card-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card {
+  flex-grow: 1;
+  width: 30%;
+  min-height: 128px;
+  height: 256px;
+  margin: 0 var(--space-base);
+  padding: var(--space-large);
+  text-align: center;
+  color: var(--highlight-color);
+  border-radius: var(--radius-large);
+  background-color: var(--lighter);
+  box-shadow: 0 var(--space-small) var(--space-base) rgba(125,147,178,.25);
+}
+
+.card h2 {
+  margin-bottom: var(--space-base);
+  color: var(--highlight-color);
+}
+
+.card p {
+  margin-bottom: var(--space-base);
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  color: var(--text-color);
+}
+
+.card span {
+  font-size: calc(var(--font-size-large) * 2);
+  font-weight: 200;
+}

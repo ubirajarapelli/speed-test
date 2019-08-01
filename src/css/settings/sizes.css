@@ -1,0 +1,15 @@
+:root {
+  --font-size-base: 16px;
+  --font-size-medium: 20px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 32px;
+
+  --space-small: 8px;
+  --space-base: 16px;
+  --space-large: 32px;
+
+  --line-height-base: 1.2;
+
+  --radius-base: 4px;
+  --radius-large: 8px;
+}

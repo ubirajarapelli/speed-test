@@ -1,3 +1,40 @@
-<p>
-  data-history works!
-</p>
+<div class="wrapper">
+  <h1>Histórico de medições</h1>
+
+  <div class="historico">
+    <details *ngFor="let item of history">
+      <summary>
+        <time [dateTime]="item.dateTime">{{item.dateTime | date: 'dd/MMM/yyyy' }}</time>
+        <!-- <i class="fas fa-caret-down"></i> -->
+        <i class="fas fa-angle-down"></i>
+      </summary>
+
+
+      <div class="gauge">
+        <span [attr.data-tooltip]="item.speedDownloadAvg">{{item.speedDownloadAvg}}</span>
+      </div>
+      <div class="details-content">
+        <dl>
+          <dt>
+            <i class="fas fa-retweet"></i>
+            Ping
+          </dt>
+          <dd>{{item.speedPingAvg.toFixed()}} Ms</dd>
+        </dl>
+        <dl>
+          <dt>
+            <i class="fas fa-arrow-down"></i>
+            Donwload
+          </dt>
+          <dd>{{item.speedDownloadAvg.toFixed(1) }} Mbps</dd>
+        </dl>
+        <dl>
+          <dt>
+            <i class="fas fa-arrow-up"></i>
+            Upload</dt>
+          <dd>{{item.speedUploadAvg.toFixed(1)}} Mbps</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 <header>
-  <h1 class="logo">Bandwidth</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Features</a>
-    <a href="#">Pricing</a>
-  </nav>
-  <!-- <span class="login">Bem vindo {{user}}</span> -->
-  <i class="fas fa-user"></i>
+  <div class="wrapper">
+    <h1 class="logo">Bandwidth</h1>
+    <nav>
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/data-history">Histórico</a>
+      <a href="#">Sobre</a>
+    </nav>
+    <span class="login">Bem vindo</span>
+    <i class="fas fa-user"></i>
+  </div>
 </header>
 <router-outlet></router-outlet>
-<a routerLink="/">Index</a>
-<a routerLink="/data-history">Home</a>

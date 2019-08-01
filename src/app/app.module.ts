@@ -7,6 +7,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DataHistoryComponent } from './data-history/data-history.component';
 import { TestSpeedComponent } from './test-speed/test-speed.component';
 
+import { Storage } from './utils/storage';
+
 @NgModule({
 
   imports: [
@@ -18,7 +20,7 @@ import { TestSpeedComponent } from './test-speed/test-speed.component';
     DataHistoryComponent,
     TestSpeedComponent
   ],
-  providers: [],
+  providers: [Storage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

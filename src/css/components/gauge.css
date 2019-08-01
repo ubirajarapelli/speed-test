@@ -1,0 +1,20 @@
+.gauge {
+  position: relative;
+  width: 96%;
+  margin: 50px auto;
+}
+.gauge:after {
+  position: absolute;
+  content: '';
+  height: 4px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right,
+  var(--red) 15%,
+  var(--orange) 25%,
+  var(--light-orange) 30%,
+  var(--yellow) 50%,
+  var(--green) 80%,
+  var(--light-green) 92%);
+}

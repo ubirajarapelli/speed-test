@@ -1,0 +1,21 @@
+header {
+  margin-top: calc(var(--space-large)*2);
+  margin-left: var(--space-base);
+  margin-bottom: var(--space-large);
+  margin-right: var(--space-base);
+}
+
+header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1,
+header span {
+  flex-grow: 3;
+}
+
+header nav {
+  flex-grow: 1
+}

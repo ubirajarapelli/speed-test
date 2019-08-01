@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '../utils/storage';
 
 @Component({
   selector: 'app-data-history',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataHistoryComponent implements OnInit {
 
-  constructor() { }
+  history: Array<object>;
+
+  constructor( private storage: Storage) { }
 
   ngOnInit() {
+    this.getHistory()
   }
+
+  getHistory() {
+    this.history = this.storage.getStorage('speedTest');
+  };
 
 }

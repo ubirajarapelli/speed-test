@@ -1,0 +1,22 @@
+:root {
+  --dark: #000;
+  --light: #fafcff;
+  --lighter: #fff;
+  --dark-blue: #232c37;
+
+  --primary: #ff5c72;
+  --seconday: #234c87;
+
+  --highlight-color: #4c6280; /*title*/
+  --text-color: #7d93b2; /* text */
+  --botao-borda: #ceddf2;
+
+  --hover: #e5f0ff;
+
+  --red: #ff4141;
+  --orange:#ff8d41;
+  --light-orange: #ffc435;
+  --yellow: #fefb20;
+  --green: #1af170;
+  --light-green: #12f9af;
+}
