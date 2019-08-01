@@ -10,6 +10,7 @@ export class TestSpeedComponent implements OnInit {
   mbMin: number = 90;
   mbMax: number = 100
   stop: boolean = false;
+  counter: number = 0;
   speedValues: Array<number> = new Array();
   speed: number;
   timer: any;
@@ -53,6 +54,9 @@ export class TestSpeedComponent implements OnInit {
       this.download = `${this.speedValues[this.speedValues.length -1]}`;
       this.upload = (this.speedValues[this.speedValues.length -1] / 8).toFixed(1);
       this.ping = `${Math.floor(this.speedValues[this.speedValues.length -1] / 12)}`;
+
+      this.counter++;
+      console.log('counter', this.counter)
 
     }, 500);
   };

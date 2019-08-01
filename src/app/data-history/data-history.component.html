@@ -5,10 +5,8 @@
     <details *ngFor="let item of history">
       <summary>
         <time [dateTime]="item.dateTime">{{item.dateTime | date: 'dd/MMM/yyyy' }}</time>
-        <!-- <i class="fas fa-caret-down"></i> -->
         <i class="fas fa-angle-down"></i>
       </summary>
-
 
       <div class="gauge">
         <span [attr.data-tooltip]="item.speedDownloadAvg">{{item.speedDownloadAvg}}</span>
