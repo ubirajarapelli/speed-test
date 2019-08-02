@@ -20,7 +20,7 @@ export class TestSpeedComponent implements OnInit {
   speedDownloadAvg: number;
   speedUploadAvg: number;
   speedPingAvg: number;
-  user: string;
+  userName: string;
 
   upload: string;
   download: string;
@@ -39,7 +39,6 @@ export class TestSpeedComponent implements OnInit {
   };
 
   reloadTest() {
-    // this.counter = 0;
     this.stop = false;
     this.interval();
   }
@@ -88,7 +87,7 @@ export class TestSpeedComponent implements OnInit {
     let arrTemp = []
 
     const obj = {
-      userName: this.user,
+      userName: this.userName,
       dateTime: Date.now(),
       speedDownloadAvg: this.speedDownloadAvg,
       speedUploadAvg: this.speedUploadAvg,
@@ -102,5 +101,10 @@ export class TestSpeedComponent implements OnInit {
 
     return this.objTosave = [].concat(obj, persist);
   };
+
+  getUser() {
+    const userInfo = this.storage.getStorage('userInfo');
+    (userInfo === null) ? this.userName = 'Usuario' : this.userName = userInfo.userName;
+  }
 
 }
