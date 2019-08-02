@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   getUser() {
     const userInfo = this.storage.getStorage('userInfo');
-    (userInfo === null) ? this.userName = 'Usuario' : this.userName = userInfo.userName;
+    (userInfo === null) ? this.userName = 'Usuario' : this.userName = userInfo.name;
   };
 
   onSubmit() {
