@@ -53,7 +53,7 @@ export class TestSpeedComponent implements OnInit {
         this.calcSpeedAvg(this.speedValues);
         this.saveSpeedAVG()
 
-        // this.storage.setSorage('speedTest', this.objTosave);
+        this.storage.setSorage('speedTest', this.objTosave);
       }
 
       this.speedValues.push(this.random(this.mbMin, this.mbMax));
@@ -103,24 +103,4 @@ export class TestSpeedComponent implements OnInit {
     return this.objTosave = [].concat(obj, persist);
   };
 
-  // public setSorage(key: string, value: any) {
-  //   localStorage.setItem(key, JSON.stringify(value))
-  // };
-
-  // public getStorage(key: string) {
-  //   return JSON.parse(localStorage.getItem(key))
-  // };
-
-  getUser() {
-    const userInfo = this.storage.getStorage('userInfo');
-    (userInfo === null) ? this.user = 'Usuario' : this.user = userInfo.userName;
-  };
-
-  // getHistory() {
-  //   this.history = this.getStorage('speedTest');
-  // };
 }
-
-// setUser() {
-  //   localStorage.setItem('userInfo', JSON.stringify({userName: 'Usuário'}))
-  // };

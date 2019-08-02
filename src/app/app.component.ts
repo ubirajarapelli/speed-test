@@ -22,15 +22,12 @@ export class AppComponent implements OnInit {
   };
 
   getUser() {
-    const userStorage = this.storage.getStorage('userName');
-    if(userStorage === null) {
-      return this.userName;
-    }
-    this.userName = userStorage.name;
+    const userInfo = this.storage.getStorage('userInfo');
+    (userInfo === null) ? this.userName = 'Usuario' : this.userName = userInfo.userName;
   };
 
   onSubmit() {
-    this.storage.setSorage('userName', this.userForm.value);
+    this.storage.setSorage('userInfo', this.userForm.value);
     this.getUser();
   };
 
