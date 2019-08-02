@@ -7,9 +7,11 @@
   --primary: #ff5c72;
   --seconday: #234c87;
 
+  --primary-dark: #f23f57;
+
   --highlight-color: #4c6280; /*title*/
   --text-color: #7d93b2; /* text */
-  --botao-borda: #ceddf2;
+  --border-button: #ceddf2;
 
   --hover: #e5f0ff;
 
