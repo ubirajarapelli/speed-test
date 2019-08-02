@@ -6,7 +6,11 @@
       <a routerLink="/historico-medicao">Histórico</a>
       <a href="#">Sobre</a>
     </nav>
-    <span class="login">Bem vindo Usuário</span>
+    <span class="login">Bem vindo {{userName}}</span>
   </div>
 </header>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="name">
+  <button>Update Name</button>
+</form>
 <router-outlet></router-outlet>
