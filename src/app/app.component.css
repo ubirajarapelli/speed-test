@@ -1,5 +1,3 @@
-
-
 .logo {
   font-size: var(--font-size-large);
   font-weight: 700;
@@ -8,12 +6,12 @@
 
 .logo::before {
   font-family: "Font Awesome 5 Free";
-  content: '\f57d'; /*content: '\f18b';*/
+  content: '\f57d';
   display: inline-block;
-  padding-right: 3px;
+  padding-right: var(--space-xsmall);
   vertical-align: middle;
-  font-weight:900;
-  font-size: var(--font-size-large);
+  font-weight: 900;
+  font-size: 32px;
   color: var(--primary);
 }
 
@@ -27,12 +25,18 @@ header nav a:hover {
   color: var(--primary)
 }
 
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .login {
   text-align: right;
   color: var(--text-color);
 }
 
-nav {
-  display: flex;
-  justify-content: space-evenly;
+.login::after {
+  font-family: "Font Awesome 5 Free";
+  content: '\f078';
+  font-size: 16px;;
 }

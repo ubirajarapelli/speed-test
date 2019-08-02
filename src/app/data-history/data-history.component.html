@@ -1,6 +1,8 @@
 <div class="wrapper">
   <h1>Histórico de medições</h1>
 
+  <h2 *ngIf="showHistory">Você ainda não realizou medições</h2>
+
   <div class="historico">
     <details *ngFor="let item of history">
       <summary>

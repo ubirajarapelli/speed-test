@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '../utils/storage'
+import { Storage } from '../utils/storage';
+
 @Component({
   selector: 'app-test-speed',
   templateUrl: './test-speed.component.html',
   styleUrls: ['./test-speed.component.css']
 })
+
 export class TestSpeedComponent implements OnInit {
 
   mbMin: number = 90;
@@ -23,6 +25,7 @@ export class TestSpeedComponent implements OnInit {
   upload: string;
   download: string;
   ping: string;
+  percentage: string;
 
   objTosave: Array<object>;
 
@@ -35,14 +38,19 @@ export class TestSpeedComponent implements OnInit {
     this.getUser();
   };
 
+  reloadTest() {
+    // this.counter = 0;
+    this.stop = false;
+    this.interval();
+  }
+
   interval(): any {
     this.timeOut();
     const intervalTtime = setInterval(() => {
       if(this.stop) {
+        this.counter = 0;
         clearInterval(intervalTtime);
-
         this.calcSpeedAvg(this.speedValues);
-
         this.saveSpeedAVG()
 
         // this.storage.setSorage('speedTest', this.objTosave);
@@ -55,8 +63,7 @@ export class TestSpeedComponent implements OnInit {
       this.upload = (this.speedValues[this.speedValues.length -1] / 8).toFixed(1);
       this.ping = `${Math.floor(this.speedValues[this.speedValues.length -1] / 12)}`;
 
-      this.counter++;
-      console.log('counter', this.counter)
+      this.percentage = ((this.counter++) / 0.19).toFixed();
 
     }, 500);
   };

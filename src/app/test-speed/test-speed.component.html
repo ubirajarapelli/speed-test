@@ -1,8 +1,13 @@
 <div class="wrapper">
   <h1>Teste de velocidade da internet</h1>
 
-  <div class="progress-bar">
+  <div *ngIf="!stop" class="progress-bar">
+    <span>{{percentage}}%</span>
     <progress min="0" max="20" [value]="counter"></progress>
+  </div>
+
+  <div *ngIf="stop">
+    <h2>O resultado do seu teste foi</h2>
   </div>
 
   <div class="card-group">
@@ -24,6 +29,10 @@
       <p>A Velocidade de upload se refere à rapidez com que um arquivo pode ser enviado a um serviço na Internet. </p>
       <span>{{upload}} Mbps</span>
     </div>
+  </div>
+
+  <div class="action-bar" *ngIf="stop">
+    <button type="button" class="primary" (click)="reloadTest()">Testar novamente</button>
   </div>
 
 </div>

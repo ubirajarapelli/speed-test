@@ -9,6 +9,7 @@ import { Storage } from '../utils/storage';
 export class DataHistoryComponent implements OnInit {
 
   history: Array<object>;
+  showHistory: boolean = false;
 
   constructor( private storage: Storage) { }
 
@@ -18,6 +19,9 @@ export class DataHistoryComponent implements OnInit {
 
   getHistory() {
     this.history = this.storage.getStorage('speedTest');
+    if (this.history === null) {
+      this.showHistory = true
+    }
   };
 
 }
